@@ -1,0 +1,21 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>ChatBox</title>
+    </head>
+    <body>
+     {% if user.is_authenticated %}
+        <div class="page-header">
+            <a href="{% url 'logout' %}">logout </a>
+            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            <h1>ChatBox</h1>
+        </div>
+        {% for i in message %}
+                {{i.text}}   {{ i.sender }}  {{ i.datetime }}
+          {% endfor %}
+    {% else %}
+    <p><a href="{% url 'login' %}">Login</a></p>
+    <p><a href="{% url 'signup' %}">Create New User</a></p>
+    {% endif %}
+    </body>
+</html>
