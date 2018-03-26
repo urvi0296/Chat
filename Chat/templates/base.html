@@ -2,20 +2,45 @@
 <html>
     <head>
         <title>ChatBox</title>
+          <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
      {% if user.is_authenticated %}
         <div class="page-header">
             <a href="{% url 'logout' %}">logout </a>
-            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-            <h1>ChatBox</h1>
+            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span> Start Chat</a>
+            <h1>Chat</h1>
         </div>
-        {% for i in message %}
-                {{i.text}}   {{ i.sender }}  {{ i.datetime }}
-          {% endfor %}
+          <div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Message</th>
+        <th>Sender</th>
+        <th>Date and Time</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in message %}
+      <tr>
+        <td>{{ i.text }}</td>
+        <td>{{ i.sender }}</td>
+        <td>{{ i.datetime }}</td>
+      </tr>
+     {% endfor %}
+    </tbody>
+  </table>
+
+</div>
     {% else %}
     <p><a href="{% url 'login' %}">Login</a></p>
     <p><a href="{% url 'signup' %}">Create New User</a></p>
     {% endif %}
+
     </body>
 </html>

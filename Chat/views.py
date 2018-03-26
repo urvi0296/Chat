@@ -23,7 +23,7 @@ def post_new(request):
 
 
 def post_list(request):
-    message = Message.objects.all().filter(reciever=request.user)
+    message = Message.objects.all().filter(receiver=request.user)
     return render(request, 'base.html',context={'message':message})
 def signup(request):
     if request.method == 'POST':
