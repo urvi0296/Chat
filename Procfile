@@ -1,0 +1,1 @@
+web: gunicorn Assingment.wsgi --log-file -
