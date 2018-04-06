@@ -1,1 +1,1 @@
-web: gunicorn Assingment.wsgi --log-file -
+web: gunicorn ChatApp.wsgi --log-file -
