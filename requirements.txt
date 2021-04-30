@@ -60,7 +60,7 @@ PyYAML==3.12
 regex==2017.9.23
 reportlab==3.4.0
 requests==2.18.4
-rsa==3.4.2
+rsa==4.7
 ruamel.yaml==0.15.34
 s3transfer==0.1.13
 scipy==1.0.0
